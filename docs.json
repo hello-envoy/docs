@@ -119,6 +119,11 @@
             "group": "Comparisons",
             "pages": [
               "resources/why-envoy",
+              "resources/envoy-vs-the-knot",
+              "resources/envoy-vs-weddingwire",
+              "resources/envoy-vs-zola",
+              "resources/envoy-vs-joy",
+              "resources/envoy-vs-honeybook",
               "resources/envoy-vs-angi",
               "resources/envoy-vs-thumbtack"
             ]
@@ -139,5 +144,35 @@
     "socials": {
       "linkedin": "https://www.linkedin.com/company/hello-envoy/"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/resources/the-knot-vs-envoy",
+      "destination": "/resources/envoy-vs-the-knot"
+    },
+    {
+      "source": "/resources/weddingwire-vs-envoy",
+      "destination": "/resources/envoy-vs-weddingwire"
+    },
+    {
+      "source": "/resources/zola-vs-envoy",
+      "destination": "/resources/envoy-vs-zola"
+    },
+    {
+      "source": "/resources/joy-vs-envoy",
+      "destination": "/resources/envoy-vs-joy"
+    },
+    {
+      "source": "/resources/honeybook-vs-envoy",
+      "destination": "/resources/envoy-vs-honeybook"
+    },
+    {
+      "source": "/resources/angi-vs-envoy",
+      "destination": "/resources/envoy-vs-angi"
+    },
+    {
+      "source": "/resources/thumbtack-vs-envoy",
+      "destination": "/resources/envoy-vs-thumbtack"
+    }
+  ]
 }

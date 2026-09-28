@@ -5,6 +5,7 @@
 import EmbeddedPostgres from 'embedded-postgres'
 import { spawn } from 'node:child_process'
 import { mkdir, readFile, writeFile, rm } from 'node:fs/promises'
+import { rmSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { setTimeout as delay } from 'node:timers/promises'
@@ -97,10 +98,42 @@ async function ensurePmDependencies() {
   }
 }
 
-async function ensureEnvFile() {
-  const envPath = join(pmRoot, '.env')
+const envPath = join(pmRoot, '.env')
+let originalEnvContents = null
+let envFileExisted = false
+let envRestored = false
+
+async function snapshotEnvFile() {
+  try {
+    originalEnvContents = await readFile(envPath, 'utf8')
+    envFileExisted = true
+  } catch (error) {
+    if (error && error.code === 'ENOENT') {
+      originalEnvContents = null
+      envFileExisted = false
+      return
+    }
+    throw error
+  }
+}
+
+async function writeScreenshotEnvFile() {
   const lines = Object.entries(appEnv).map(([key, value]) => `${key}=${value}`)
   await writeFile(envPath, `${lines.join('\n')}\n`)
+}
+
+function restoreEnvFileSync() {
+  if (envRestored) return
+  try {
+    if (envFileExisted) {
+      writeFileSync(envPath, originalEnvContents ?? '')
+    } else {
+      rmSync(envPath, { force: true })
+    }
+    envRestored = true
+  } catch (error) {
+    console.warn(`Could not restore ${envPath}: ${error.message}`)
+  }
 }
 
 async function main() {
@@ -123,7 +156,15 @@ async function main() {
   let server
   try {
     await ensurePmDependencies()
-    await ensureEnvFile()
+    await snapshotEnvFile()
+    await writeScreenshotEnvFile()
+    for (const signal of ['SIGINT', 'SIGTERM']) {
+      process.on(signal, () => {
+        restoreEnvFileSync()
+        process.exit(signal === 'SIGINT' ? 130 : 143)
+      })
+    }
+    process.on('exit', restoreEnvFileSync)
 
     console.log('Running migrations and seeders...')
     await run('node', ['ace', 'migration:run'])
@@ -171,6 +212,7 @@ async function main() {
     await rm(pgDataDir, { recursive: true, force: true }).catch((error) => {
       console.warn(`Could not remove Postgres data dir: ${error.message}`)
     })
+    restoreEnvFileSync()
   }
 }
 
