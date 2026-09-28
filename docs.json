@@ -144,5 +144,35 @@
     "socials": {
       "linkedin": "https://www.linkedin.com/company/hello-envoy/"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/resources/the-knot-vs-envoy",
+      "destination": "/resources/envoy-vs-the-knot"
+    },
+    {
+      "source": "/resources/weddingwire-vs-envoy",
+      "destination": "/resources/envoy-vs-weddingwire"
+    },
+    {
+      "source": "/resources/zola-vs-envoy",
+      "destination": "/resources/envoy-vs-zola"
+    },
+    {
+      "source": "/resources/joy-vs-envoy",
+      "destination": "/resources/envoy-vs-joy"
+    },
+    {
+      "source": "/resources/honeybook-vs-envoy",
+      "destination": "/resources/envoy-vs-honeybook"
+    },
+    {
+      "source": "/resources/angi-vs-envoy",
+      "destination": "/resources/envoy-vs-angi"
+    },
+    {
+      "source": "/resources/thumbtack-vs-envoy",
+      "destination": "/resources/envoy-vs-thumbtack"
+    }
+  ]
 }
