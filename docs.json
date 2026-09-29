@@ -116,9 +116,26 @@
         "tab": "Resources",
         "groups": [
           {
-            "group": "Comparisons",
+            "group": "Wedding Tools",
             "pages": [
               "resources/why-envoy",
+              "resources/envoy-vs-the-knot",
+              "resources/envoy-vs-weddingwire",
+              "resources/envoy-vs-zola",
+              "resources/envoy-vs-joy",
+              "resources/envoy-vs-honeybook"
+            ]
+          },
+          {
+            "group": "Vendor Sourcing Tools",
+            "pages": [
+              "resources/envoy-vs-angi",
+              "resources/envoy-vs-thumbtack"
+            ]
+          },
+          {
+            "group": "AI Chatbots",
+            "pages": [
               "resources/envoy-vs-chatgpt",
               "resources/envoy-vs-claude",
               "resources/envoy-vs-gemini",
@@ -126,14 +143,7 @@
               "resources/envoy-vs-perplexity",
               "resources/envoy-vs-notion-ai",
               "resources/envoy-vs-grok-bot",
-              "resources/envoy-vs-muse",
-              "resources/envoy-vs-the-knot",
-              "resources/envoy-vs-weddingwire",
-              "resources/envoy-vs-zola",
-              "resources/envoy-vs-joy",
-              "resources/envoy-vs-honeybook",
-              "resources/envoy-vs-angi",
-              "resources/envoy-vs-thumbtack"
+              "resources/envoy-vs-muse"
             ]
           },
           {
