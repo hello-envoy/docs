@@ -116,14 +116,37 @@
         "tab": "Resources",
         "groups": [
           {
-            "group": "Comparisons",
+            "group": "Why Envoy",
             "pages": [
-              "resources/why-envoy",
+              "resources/why-envoy"
+            ]
+          },
+          {
+            "group": "Other Wedding Tools",
+            "pages": [
               "resources/envoy-vs-the-knot",
               "resources/envoy-vs-weddingwire",
               "resources/envoy-vs-zola",
               "resources/envoy-vs-joy",
-              "resources/envoy-vs-honeybook",
+              "resources/envoy-vs-honeybook"
+            ]
+          },
+          {
+            "group": "Generic AI Chatbots",
+            "pages": [
+              "resources/envoy-vs-chatgpt",
+              "resources/envoy-vs-claude",
+              "resources/envoy-vs-gemini",
+              "resources/envoy-vs-microsoft-copilot",
+              "resources/envoy-vs-perplexity",
+              "resources/envoy-vs-notion-ai",
+              "resources/envoy-vs-grok-bot",
+              "resources/envoy-vs-muse"
+            ]
+          },
+          {
+            "group": "Other Vendor Sourcing Tools",
+            "pages": [
               "resources/envoy-vs-angi",
               "resources/envoy-vs-thumbtack"
             ]
@@ -173,6 +196,38 @@
     {
       "source": "/resources/thumbtack-vs-envoy",
       "destination": "/resources/envoy-vs-thumbtack"
+    },
+    {
+      "source": "/resources/chatgpt-vs-envoy",
+      "destination": "/resources/envoy-vs-chatgpt"
+    },
+    {
+      "source": "/resources/claude-vs-envoy",
+      "destination": "/resources/envoy-vs-claude"
+    },
+    {
+      "source": "/resources/gemini-vs-envoy",
+      "destination": "/resources/envoy-vs-gemini"
+    },
+    {
+      "source": "/resources/microsoft-copilot-vs-envoy",
+      "destination": "/resources/envoy-vs-microsoft-copilot"
+    },
+    {
+      "source": "/resources/perplexity-vs-envoy",
+      "destination": "/resources/envoy-vs-perplexity"
+    },
+    {
+      "source": "/resources/notion-ai-vs-envoy",
+      "destination": "/resources/envoy-vs-notion-ai"
+    },
+    {
+      "source": "/resources/grok-bot-vs-envoy",
+      "destination": "/resources/envoy-vs-grok-bot"
+    },
+    {
+      "source": "/resources/muse-vs-envoy",
+      "destination": "/resources/envoy-vs-muse"
     }
   ]
 }
