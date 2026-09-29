@@ -116,9 +116,14 @@
         "tab": "Resources",
         "groups": [
           {
-            "group": "Wedding Tools",
+            "group": "Why Envoy",
             "pages": [
-              "resources/why-envoy",
+              "resources/why-envoy"
+            ]
+          },
+          {
+            "group": "Other Wedding Tools",
+            "pages": [
               "resources/envoy-vs-the-knot",
               "resources/envoy-vs-weddingwire",
               "resources/envoy-vs-zola",
@@ -127,14 +132,7 @@
             ]
           },
           {
-            "group": "Vendor Sourcing Tools",
-            "pages": [
-              "resources/envoy-vs-angi",
-              "resources/envoy-vs-thumbtack"
-            ]
-          },
-          {
-            "group": "AI Chatbots",
+            "group": "Generic AI Chatbots",
             "pages": [
               "resources/envoy-vs-chatgpt",
               "resources/envoy-vs-claude",
@@ -144,6 +142,13 @@
               "resources/envoy-vs-notion-ai",
               "resources/envoy-vs-grok-bot",
               "resources/envoy-vs-muse"
+            ]
+          },
+          {
+            "group": "Other Vendor Sourcing Tools",
+            "pages": [
+              "resources/envoy-vs-angi",
+              "resources/envoy-vs-thumbtack"
             ]
           },
           {
