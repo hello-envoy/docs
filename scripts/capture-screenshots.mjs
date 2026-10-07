@@ -199,6 +199,15 @@ async function main() {
         await page.goto(appUrl('/'), { waitUntil: 'networkidle' })
         await page.getByLabel('What are you planning?').fill(WEDDING_INTAKE)
         await page.getByLabel(/ZIP or postal code/i).fill('29401')
+        // Longer sample prompts push Search below a 900px viewport. Grow the
+        // viewport so the description field stays put and Search stays in frame.
+        const search = page.getByRole('button', { name: 'Search', exact: true })
+        await search.waitFor()
+        const box = await search.boundingBox()
+        if (box) {
+          const height = Math.ceil(box.y + box.height + 4)
+          if (height > 900) await page.setViewportSize({ width: 1280, height })
+        }
       },
     },
     {
@@ -436,6 +445,7 @@ async function main() {
       if (pathFilter && !shot.path.includes(pathFilter)) continue
 
       currentDest = join(root, themedPath(shot.path, scheme))
+      await page.setViewportSize({ width: 1280, height: 900 })
       try {
         if (shot.skipOnLocalWithoutReasoningEngine && baseUrl.includes('127.0.0.1')) {
           let reasoningReady = false
