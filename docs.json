@@ -119,19 +119,19 @@
           {
             "group": "Why Envoy",
             "pages": [
-              "resources/why-envoy"
+              "resources/why-envoy",
+              "resources/best-app-for-wedding-vendors",
+              "resources/envoy-for-wedding-planners"
             ]
           },
           {
             "group": "Other Wedding Tools",
             "pages": [
-              "resources/best-app-for-wedding-vendors",
               "resources/envoy-vs-the-knot",
               "resources/envoy-vs-weddingwire",
               "resources/envoy-vs-zola",
               "resources/envoy-vs-joy",
               "resources/envoy-vs-honeybook",
-              "resources/envoy-for-wedding-planners",
               "resources/envoy-vs-a-spreadsheet"
             ]
           },
