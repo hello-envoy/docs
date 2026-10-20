@@ -80,6 +80,7 @@
               "help-center/outreach/outreach-overview",
               "help-center/outreach/connect-your-email",
               "help-center/outreach/create-and-send-a-message",
+              "help-center/outreach/email-several-wedding-vendors",
               "help-center/outreach/attach-files",
               "help-center/outreach/revise-with-envoy",
               "help-center/outreach/reply-to-contacts",
@@ -118,7 +119,9 @@
           {
             "group": "Why Envoy",
             "pages": [
-              "resources/why-envoy"
+              "resources/why-envoy",
+              "resources/best-app-for-wedding-vendors",
+              "resources/envoy-for-wedding-planners"
             ]
           },
           {
@@ -128,7 +131,15 @@
               "resources/envoy-vs-weddingwire",
               "resources/envoy-vs-zola",
               "resources/envoy-vs-joy",
-              "resources/envoy-vs-honeybook"
+              "resources/envoy-vs-honeybook",
+              "resources/envoy-vs-a-spreadsheet"
+            ]
+          },
+          {
+            "group": "Other Vendor Sourcing Tools",
+            "pages": [
+              "resources/envoy-vs-angi",
+              "resources/envoy-vs-thumbtack"
             ]
           },
           {
@@ -142,13 +153,6 @@
               "resources/envoy-vs-notion-ai",
               "resources/envoy-vs-grok-bot",
               "resources/envoy-vs-muse"
-            ]
-          },
-          {
-            "group": "Other Vendor Sourcing Tools",
-            "pages": [
-              "resources/envoy-vs-angi",
-              "resources/envoy-vs-thumbtack"
             ]
           },
           {
