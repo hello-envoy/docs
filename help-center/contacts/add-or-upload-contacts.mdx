@@ -21,7 +21,7 @@ You can enter the same optional **Type** and **Website** when you click **+ New 
 
 ## Import contacts from a file
 
-Upload a file to add several contacts at once. Each contact needs a name and an email address. Phone and website are optional.
+Upload a file to add several contacts at once. Each contact needs a name and an email address. Phone and website are optional. Import them once, then attach them to a later project with **+ Attach existing**.
 
 ### From the Contacts page
 
@@ -40,7 +40,7 @@ Envoy opens a panel titled **Import contacts from a file**.
 
 ### Choose a file
 
-1. Upload a `.csv`, `.xlsx`, or `.docx` file by dropping it on the panel, or browse for one. The file must be 5 MB or smaller.
+1. Upload a `.csv` or `.xlsx` file by dropping it on the panel, or browse for one. The file must be 5 MB or smaller.
 2. Click **Download a CSV template** if you want the expected columns.
 
 The template columns are **Vendor Name**, **Email**, **Phone**, and **Website**. **Vendor Name** is the name of the contact. The template includes one example row. Envoy never imports that example row.
@@ -56,7 +56,7 @@ The panel shows **Found N contacts in**, followed by the file name. Envoy includ
 <img noZoom className="hidden dark:block" src="/images/projects/import-contacts-review-dark.png" alt="Review contacts found in a file" />
 
 1. Edit **Name** or **Email** on a row that needs a change. Phone and website are shown under the name and email.
-2. Check the contacts you want to import. Click **Select all** to check every row.
+2. Check the contacts you want to import. Click **Select all** to check the rows you can import.
 3. Click **Import N contacts**. On a project, the button reads **Import N contacts to project**.
 
 Envoy calls out a row when:
@@ -67,7 +67,7 @@ Envoy calls out a row when:
 - The same email appears more than once in the file
 - The contact is already in **Contacts**
 
-On a project, a contact that is already in **Contacts** is added to the project instead.
+A missing name, a missing email, or an invalid email stays importable after you fix it, or you can leave that row unchecked. The template example cannot be selected and is not imported. A duplicate email in the file starts unchecked. A contact already in **Contacts** cannot be selected again on this page, and on a project Envoy adds that contact to the project instead.
 
 When a contact matches a verified Envoy listing with the same email or the same name, Envoy offers a choice that begins with "Use the verified listing". When that listing applies, the contact can show **Onboarded to Envoy**. See [Contact badges explained](/help-center/contacts/contact-badges-explained).
 
@@ -87,16 +87,22 @@ Click **Import another file** to bring in another file, or click **Done** to clo
   If the file cannot be imported, Envoy shows one of these messages:
 
   - **Contact files must be 5 MB or smaller.**
-  - **Upload a .csv, .xlsx, or .docx file.**
+  - A message that the file must be a CSV or Excel file (`.csv` or `.xlsx`)
   - A message that begins with **No contacts were found** when Envoy finds no contacts in the file
   - **This file does not look like a CSV. Export it as CSV (UTF-8) and try again.**
 </Note>
 
 ## Edit a contact
 
-1. On **Contacts**, open edit mode for the contact.
-2. Update **Name**, **Email**, or **Website**. You can leave **Email** blank.
-3. Save your changes.
+These steps are on the **Contacts** page.
+
+1. Click **Edit** beside **Import from file**. The button switches to **Done**.
+2. On the contact, click **Edit**.
+3. Update **Name**, **Email**, or **Website**. You can leave **Email** blank. A contact without an email can't be used for outreach.
+4. Click **Save**, or **Cancel** to leave the contact unchanged.
+5. Click **Done** when you finish.
+
+On a project's **Contacts** section, **Edit** also switches to **Done**. That list does not have a per-contact **Edit**.
 
 ## Trusted listing matches
 
@@ -113,8 +119,13 @@ Choose one:
 
 ## Remove a contact
 
-1. On **Contacts**, enter remove/edit mode for the contact.
-2. Confirm with **Yes**, or click **Cancel** to keep the contact.
+These steps are on the **Contacts** page.
+
+1. Click **Edit** beside **Import from file**.
+2. On the contact, click **Remove**.
+3. When the row shows **Remove?**, click **Yes**, or click **Cancel** to keep the contact.
+
+On a project's **Contacts** section, the row action is **Detach**. **Detach** still asks **Remove?** and then **Yes** or **Cancel**.
 
 ## Related
 
