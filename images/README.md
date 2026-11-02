@@ -52,9 +52,9 @@ Dark captures set the app to **Dark** via `prefers-color-scheme` and `localStora
 | `project-overview.png` | `project-overview-dark.png` | `/projects/:uuid` | Overview tab |
 | `project-chat.png` | `project-chat-dark.png` | `/projects/:uuid` | Chat tab |
 | `contacts-page.png` | `contacts-page-dark.png` | `/contacts` | Contacts directory. Recapture after contact file import is available so **Import from file** shows next to **Find additional contacts** and **Edit**. Current files predate that button. |
-| `import-contacts-upload.png` | `import-contacts-upload-dark.png` | `/contacts` and project **Overview** | **Placeholder, not a product capture.** Panel **Import contacts from a file** on the upload step. Replace from product branch `SCRUM-184-promote-to-master` (envoy-project-management#118) or after production deploy. |
-| `import-contacts-review.png` | `import-contacts-review-dark.png` | same panel | **Placeholder, not a product capture.** Review step (**Found N contacts in** the file). Replace with the same capture pass. |
-| `project-contacts-toolbar.png` | `project-contacts-toolbar-dark.png` | `/projects/:uuid` **Overview** | **Placeholder, not a product capture.** Project **Contacts** toolbar with **Import from file** next to **Find new contacts**. Replace with the same capture pass. Recapture `project-overview.png` if that frame includes the toolbar. |
+| `import-contacts-upload.png` | `import-contacts-upload-dark.png` | `/contacts` and project **Overview** | **Placeholder, not a product capture.** Panel **Import contacts from a file** on the upload step. When you recapture, use a `.csv` or `.xlsx` file (5 MB or smaller). |
+| `import-contacts-review.png` | `import-contacts-review-dark.png` | same panel | **Placeholder, not a product capture.** Review step (**Found N contacts in** the file). Use the same `.csv` or `.xlsx` file as the upload shot. |
+| `project-contacts-toolbar.png` | `project-contacts-toolbar-dark.png` | `/projects/:uuid` **Overview** | **Placeholder, not a product capture.** Project **Contacts** toolbar with **Import from file** next to **Find new contacts**. Recapture `project-overview.png` if that frame includes the toolbar. |
 
 ## outreach/
 
