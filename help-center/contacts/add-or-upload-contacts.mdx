@@ -40,7 +40,7 @@ Envoy opens a panel titled **Import contacts from a file**.
 
 ### Choose a file
 
-1. Upload a `.csv` or `.xlsx` file by dropping it on the panel, or browse for one. The file must be 5 MB or smaller.
+1. Drop a `.csv`, `.xlsx`, or `.docx` file on the panel, or browse for one. The panel lists those types, up to 5 MB. CSV and Excel work. A Word file can fail on production right now and show **We could not read this file. Please try again.** Prefer a CSV or Excel file until that is fixed.
 2. Click **Download a CSV template** if you want the expected columns.
 
 The template columns are **Vendor Name**, **Email**, **Phone**, and **Website**. **Vendor Name** is the name of the contact. The template includes one example row. Envoy never imports that example row.
@@ -87,7 +87,7 @@ Click **Import another file** to bring in another file, or click **Done** to clo
   If the file cannot be imported, Envoy shows one of these messages:
 
   - **Contact files must be 5 MB or smaller.**
-  - A message that the file must be a CSV or Excel file (`.csv` or `.xlsx`)
+  - **We could not read this file. Please try again.** A Word file can show this on production right now. Prefer a CSV or Excel file.
   - A message that begins with **No contacts were found** when Envoy finds no contacts in the file
   - **This file does not look like a CSV. Export it as CSV (UTF-8) and try again.**
 </Note>
