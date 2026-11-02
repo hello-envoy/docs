@@ -1,13 +1,13 @@
 ---
 title: "Find and add contacts"
 sidebarTitle: "Find & add"
-description: "Search for service providers or add contacts manually from the Contacts page or within a project."
+description: "Search for service providers, add contacts manually, or import contacts from a file."
 icon: "magnifying-glass"
 ---
 
 ## What you'll accomplish
 
-Add contacts to your directory by searching on the homepage, during project creation from **Dashboard**, or by entering details manually.
+Add contacts to your directory by searching on the homepage, during project creation from **Dashboard**, by entering details manually, or by importing a file.
 
 ## Search for contacts
 
@@ -54,6 +54,79 @@ If the search stops before it finishes, see [Common issues](/help-center/trouble
 5. Click **Add Contact**.
 
 You can enter the same optional **Type** and **Website** when you click **+ New contact** on a project **Overview** tab.
+
+## Import contacts from a file
+
+Add several contacts at once from a file. Each contact needs a name and an email address. Phone and website are optional.
+
+### From the Contacts page
+
+1. Go to **Contacts**.
+2. Click **Import from file**, next to **🔍 Find additional contacts** and **Edit**.
+
+### From a project
+
+1. Open the project and go to the **Overview** tab.
+2. In the **Contacts** section, click **Import from file**, next to **🔍 Find new contacts**.
+
+<img noZoom className="block dark:hidden" src="/images/projects/project-contacts-toolbar.png" alt="Project Contacts section with Import from file" />
+<img noZoom className="hidden dark:block" src="/images/projects/project-contacts-toolbar-dark.png" alt="Project Contacts section with Import from file" />
+
+Envoy opens a panel titled **Import contacts from a file**.
+
+### Choose a file
+
+1. Drop a `.csv`, `.xlsx`, or `.docx` file on the panel, or browse for one. The file must be 5 MB or smaller.
+2. Click **Download a CSV template** if you want the expected columns.
+
+The template columns are **Vendor Name**, **Email**, **Phone**, and **Website**. **Vendor Name** is the name of the contact. The template includes one example row. Envoy never imports that example row.
+
+<img noZoom className="block dark:hidden" src="/images/projects/import-contacts-upload.png" alt="Import contacts from a file" />
+<img noZoom className="hidden dark:block" src="/images/projects/import-contacts-upload-dark.png" alt="Import contacts from a file" />
+
+### Review the contacts
+
+The panel shows **Found N contacts in**, followed by the file name. Envoy includes only the first 500 contacts. When the file has more, the panel notes that you should split the file and import the rest separately.
+
+<img noZoom className="block dark:hidden" src="/images/projects/import-contacts-review.png" alt="Review contacts found in a file" />
+<img noZoom className="hidden dark:block" src="/images/projects/import-contacts-review-dark.png" alt="Review contacts found in a file" />
+
+1. Edit **Name** or **Email** on a row that needs a change. Phone and website are shown under the name and email.
+2. Check the contacts you want to import. Click **Select all** to check every row.
+3. Click **Import N contacts**. On a project, the button reads **Import N contacts to project**.
+
+Envoy calls out a row when:
+
+- The name or email is missing
+- The email address is not valid
+- The email is the example from the template
+- The same email appears more than once in the file
+- The contact is already in **Contacts**
+
+On a project, a contact that is already in **Contacts** is added to the project instead.
+
+When a contact matches a verified Envoy listing with the same email or the same name, Envoy offers a choice that begins with "Use the verified listing". When that listing applies, the contact can show **Onboarded to Envoy**. See [Contact badges explained](/help-center/contacts/contact-badges-explained).
+
+### Read the summary
+
+After the import, Envoy summarizes what happened:
+
+- New contacts
+- Verified listing links
+- Contacts already there
+- Contacts added to the project
+- Contacts skipped
+
+Click **Import another file** to bring in another file, or click **Done** to close the panel.
+
+<Note>
+  If the file cannot be imported, Envoy shows one of these messages:
+
+  - **Contact files must be 5 MB or smaller.**
+  - **Upload a .csv, .xlsx, or .docx file.**
+  - A message that begins with **No contacts were found** when Envoy finds no contacts in the file
+  - **This file does not look like a CSV. Export it as CSV (UTF-8) and try again.**
+</Note>
 
 ## Edit a contact
 
