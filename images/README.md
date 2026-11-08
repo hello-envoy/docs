@@ -49,9 +49,12 @@ Dark captures set the app to **Dark** via `prefers-color-scheme` and `localStora
 | `dashboard-empty.png` | `dashboard-empty-dark.png` | `/dashboard` | No projects yet state |
 | `dashboard-populated.png` | `dashboard-populated-dark.png` | `/dashboard` | Recent projects list |
 | `project-wizard.png` | `project-wizard-dark.png` | `/dashboard` | New project wizard Essentials |
-| `project-overview.png` | `project-overview-dark.png` | `/projects/:uuid` | Overview tab |
+| `project-overview.png` | `project-overview-dark.png` | `/projects/:uuid` | Overview tab. Not recaptured with import. **Import from file** shows only after **Edit** in the **Contacts** section. |
 | `project-chat.png` | `project-chat-dark.png` | `/projects/:uuid` | Chat tab |
-| `contacts-page.png` | `contacts-page-dark.png` | `/contacts` | Contacts directory |
+| `contacts-page.png` | `contacts-page-dark.png` | `/contacts` | Contacts directory from production. **Import from file** sits next to **Find additional contacts** and **Edit**. |
+| `import-contacts-upload.png` | `import-contacts-upload-dark.png` | `/contacts` and project **Overview** | Production capture of **Import contacts from a file** before a file is chosen. Help text documents `.csv` and `.xlsx` only, up to 5 MB. |
+| `import-contacts-review.png` | `import-contacts-review-dark.png` | same panel | Production capture of the review step after a `.csv` file. **Found 2 contacts in** the file, then **Import 2 contacts**. |
+| `project-contacts-toolbar.png` | `project-contacts-toolbar-dark.png` | `/projects/:uuid` **Overview** | Production capture after **Edit** (**Done** is showing). **Import from file** is in the **Contacts** section. The row action is **Detach**. |
 
 ## outreach/
 
