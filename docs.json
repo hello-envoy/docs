@@ -61,7 +61,6 @@
               "help-center/projects/dashboard-overview",
               "help-center/projects/create-a-project",
               "help-center/projects/project-overview-tab",
-              "help-center/projects/chat-planning",
               "help-center/projects/edit-or-delete-a-project"
             ]
           },
@@ -73,6 +72,15 @@
               "help-center/contacts/add-or-upload-contacts",
               "help-center/contacts/attach-contacts-to-projects",
               "help-center/contacts/contact-badges-explained"
+            ]
+          },
+          {
+            "group": "Ask Envoy",
+            "pages": [
+              "help-center/ask-envoy/chat-planning",
+              "help-center/ask-envoy/actions",
+              "help-center/ask-envoy/find-contacts",
+              "help-center/ask-envoy/add-contacts"
             ]
           },
           {
@@ -174,6 +182,10 @@
     }
   },
   "redirects": [
+    {
+      "source": "/help-center/projects/chat-planning",
+      "destination": "/help-center/ask-envoy/chat-planning"
+    },
     {
       "source": "/help-center/contacts/find-and-add-contacts",
       "destination": "/help-center/contacts/find-contacts"
