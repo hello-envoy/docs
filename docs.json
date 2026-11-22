@@ -60,7 +60,8 @@
             "pages": [
               "help-center/projects/dashboard-overview",
               "help-center/projects/create-a-project",
-              "help-center/projects/project-overview-tab",
+              "help-center/projects/today",
+              "help-center/projects/project-tab",
               "help-center/projects/edit-or-delete-a-project"
             ]
           },
@@ -183,6 +184,10 @@
     }
   },
   "redirects": [
+    {
+      "source": "/help-center/projects/project-overview-tab",
+      "destination": "/help-center/projects/today"
+    },
     {
       "source": "/help-center/projects/chat-planning",
       "destination": "/help-center/ask-envoy/chat-planning"

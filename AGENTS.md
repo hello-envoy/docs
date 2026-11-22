@@ -54,7 +54,7 @@ Use UI labels exactly as they appear in the app:
 |--------|---------|
 | `help-center/get-started/` | Onboarding funnel |
 | `help-center/projects/` | Dashboard and project workspace |
-| `help-center/ask-envoy/` | Ask Envoy on the project Chat tab |
+| `help-center/ask-envoy/` | Ask Envoy on a wedding, in the left side |
 | `help-center/contacts/` | Contact discovery and directory |
 | `help-center/outreach/` | Email draft, send, reply |
 | `help-center/account/` | Settings |

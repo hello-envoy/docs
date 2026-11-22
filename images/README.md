@@ -39,36 +39,58 @@ Dark captures set the app to **Dark** via `prefers-color-scheme` and `localStora
 | `search-results-badges.png` | `search-results-badges-dark.png` | `/` | Results with Onboarded/Unverified badges |
 | `registration-form.png` | `registration-form-dark.png` | `/register` | Create account + mailbox checkbox |
 | `consent-preferences.png` | `consent-preferences-dark.png` | `/onboarding/consent` | Choose your data preferences |
-| `project-wizard.png` | `project-wizard-dark.png` | `/dashboard` | New project wizard Essentials |
+| `project-wizard.png` | `project-wizard-dark.png` | `/dashboard` | New project wizard Essentials. Stale: shows the previous sidebar. Not used on a page until recaptured. |
 | `journey-overview.svg` | — | — | Unused placeholder |
+
+## Needs a local capture
+
+These files still show the previous sidebar or the Overview / Chat / Outreach tabs. Help Center pages no longer use them. Recapture light and dark from a local build of the three-tab planner before putting them back on a page. Do not draw replacements.
+
+| Files | What to capture |
+|-------|-----------------|
+| `projects/dashboard-empty.png`, `projects/dashboard-empty-dark.png` | **Dashboard** with no projects, including the left side |
+| `projects/dashboard-populated.png`, `projects/dashboard-populated-dark.png` | **Dashboard** with recent projects, including the left side |
+| `projects/project-wizard.png`, `projects/project-wizard-dark.png`, `getting-started/project-wizard.png`, `getting-started/project-wizard-dark.png` | New project **Essentials**, including the left side |
+| `projects/project-overview.png`, `projects/project-overview-dark.png` | A wedding open on **Today** |
+| `projects/project-chat.png`, `projects/project-chat-dark.png` | **Ask Envoy** open on a wedding |
+| `outreach/new-message.png`, `outreach/new-message-dark.png` | **Contacts** → **Inbox** with a draft |
+| `outreach/attach-files.png`, `outreach/attach-files-dark.png` | A file attached on that draft |
+| `account/account-settings.png`, `account/account-settings-dark.png` | **Account** opened from **Settings**, including the left side |
+| `account/email-connections.png`, `account/email-connections-dark.png` | **Connected Email Accounts**, without the old sidebar |
+
+Also capture, with no current file: **Project** with **Edit project details**, **Contacts** → **All**, the account menu (**Settings**, **Help Center**, **Give Feedback**, **Logout**), and the white Envoy logo at the top left in dark mode.
+
+These crops do not show the old sidebar, and the panels they show did not move, so pages still use them: `contacts-page`, `project-contacts-toolbar`, `import-contacts-upload`, `import-contacts-review`, `data-privacy`, `default-location`, and the public getting-started images other than the project wizard.
+
+Older `.svg` files in the same folders are unused placeholders of the previous layout. Replace them only when a real capture exists.
 
 ## projects/
 
 | File | Dark | Page | Notes |
 |------|------|------|-------|
-| `dashboard-empty.png` | `dashboard-empty-dark.png` | `/dashboard` | No projects yet state |
-| `dashboard-populated.png` | `dashboard-populated-dark.png` | `/dashboard` | Recent projects list |
-| `project-wizard.png` | `project-wizard-dark.png` | `/dashboard` | New project wizard Essentials |
-| `project-overview.png` | `project-overview-dark.png` | `/projects/:uuid` | Overview tab. Not recaptured with import. **Import from file** shows only after **Edit** in the **Contacts** section. |
-| `project-chat.png` | `project-chat-dark.png` | `/projects/:uuid` | Chat tab |
+| `dashboard-empty.png` | `dashboard-empty-dark.png` | `/dashboard` | No projects yet. Stale: previous sidebar. Not used until recaptured. |
+| `dashboard-populated.png` | `dashboard-populated-dark.png` | `/dashboard` | Recent projects. Stale: previous sidebar. Not used until recaptured. |
+| `project-wizard.png` | `project-wizard-dark.png` | `/dashboard` | New project wizard Essentials. Stale: shows the previous sidebar. Not used on a page until recaptured. |
+| `project-overview.png` | `project-overview-dark.png` | `/projects/:uuid` | Stale: Overview / Chat / Outreach. Recapture **Today**. Not used until then. |
+| `project-chat.png` | `project-chat-dark.png` | `/projects/:uuid` | Stale: Chat tab. Recapture **Ask Envoy**. Not used until then. |
 | `contacts-page.png` | `contacts-page-dark.png` | `/contacts` | Contacts directory from production. **Import from file** sits next to **Find additional contacts** and **Edit**. |
-| `import-contacts-upload.png` | `import-contacts-upload-dark.png` | `/contacts` and project **Overview** | Production capture of **Import contacts from a file** before a file is chosen. Help text documents `.csv` and `.xlsx` only, up to 5 MB. |
+| `import-contacts-upload.png` | `import-contacts-upload-dark.png` | `/contacts` and **All** | Crop of **Import contacts from a file** before a file is chosen. Still used. |
 | `import-contacts-review.png` | `import-contacts-review-dark.png` | same panel | Production capture of the review step after a `.csv` file. **Found 2 contacts in** the file, then **Import 2 contacts**. |
-| `project-contacts-toolbar.png` | `project-contacts-toolbar-dark.png` | `/projects/:uuid` **Overview** | Production capture after **Edit** (**Done** is showing). **Import from file** is in the **Contacts** section. The row action is **Detach**. |
+| `project-contacts-toolbar.png` | `project-contacts-toolbar-dark.png` | `/projects/:uuid` **All** | Crop after **Edit** (**Done** is showing). Still used. The row action is **Detach**. |
 
 ## outreach/
 
 | File | Dark | Page | Notes |
 |------|------|------|-------|
-| `new-message.png` | `new-message-dark.png` | `/projects/:uuid` outreach tab | Compose draft |
-| `attach-files.png` | `attach-files-dark.png` | `/projects/:uuid` outreach tab | Attach files drop zone and chips |
+| `new-message.png` | `new-message-dark.png` | `/projects/:uuid` **Inbox** | Stale: Outreach tab. Recapture a draft in **Inbox**. Not used until then. |
+| `attach-files.png` | `attach-files-dark.png` | `/projects/:uuid` **Inbox** | Stale: Outreach tab. Recapture an attached file in **Inbox**. Not used until then. |
 
 ## account/
 
 | File | Dark | Page | Notes |
 |------|------|------|-------|
-| `account-settings.png` | `account-settings-dark.png` | `/account` | Full Account page |
-| `email-connections.png` | `email-connections-dark.png` | `/account#email-accounts` | Connected Email Accounts section |
+| `account-settings.png` | `account-settings-dark.png` | `/account` | Stale: previous sidebar. Recapture **Account** from **Settings**. Not used until then. |
+| `email-connections.png` | `email-connections-dark.png` | `/account#email-accounts` | Stale: previous sidebar is in the frame. Recapture **Connected Email Accounts**. Not used until then. |
 | `data-privacy.png` | `data-privacy-dark.png` | `/account` | Data & Privacy section (cropped) |
 | `default-location.png` | `default-location-dark.png` | `/account` | Default project location section (cropped) |
 | `vendor-pending.png` | `vendor-pending-dark.png` | `/vendor/pending` | Pro pending approval |
