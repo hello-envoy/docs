@@ -46,6 +46,8 @@ Dark captures set the app to **Dark** via `prefers-color-scheme` and `localStora
 
 These files still show the previous sidebar or the Overview / Chat / Outreach tabs. Help Center pages no longer use them. Recapture light and dark from a local build of the three-tab planner before putting them back on a page. Do not draw replacements.
 
+The Dev app at https://dev-app.hello-envoy.com already serves the new planner (the white wordmark is there). The capture script cannot sign in there: its seeded account is sent back to the sign-in page, and the product repo is not available in this checkout to boot a local app. These shots still need a local capture.
+
 | Files | What to capture |
 |-------|-----------------|
 | `projects/dashboard-empty.png`, `projects/dashboard-empty-dark.png` | **Dashboard** with no projects, including the left side |
