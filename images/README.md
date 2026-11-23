@@ -44,9 +44,9 @@ Dark captures set the app to **Dark** via `prefers-color-scheme` and `localStora
 
 ## Needs a local capture
 
-These files still show the previous sidebar or the Overview / Chat / Outreach tabs. Help Center pages no longer use them. Recapture light and dark from a local build of the three-tab planner before putting them back on a page. Do not draw replacements.
+These files still show the previous sidebar or the Overview / Chat / Outreach tabs. Help Center pages no longer use them. Recapture light and dark before putting them back on a page. Do not draw replacements.
 
-The Dev app at https://dev-app.hello-envoy.com already serves the new planner (the white wordmark is there). The capture script cannot sign in there: its seeded account is sent back to the sign-in page, and the product repo is not available in this checkout to boot a local app. These shots still need a local capture.
+A recapture against https://app.hello-envoy.com did not run. That sign-in page offers **Continue with Google** and **Continue with Microsoft** only, and this script signs in with the local seeded email and password. It also opens the local sample wedding, which production does not have. These shots still need a capture. The script's project steps now use **Today**, **Contacts** (**Inbox**, **Compare**, **All**), **Project**, **Ask Envoy** (the left-side control, or the header logo on a phone), and the account menu.
 
 | Files | What to capture |
 |-------|-----------------|
@@ -60,7 +60,7 @@ The Dev app at https://dev-app.hello-envoy.com already serves the new planner (t
 | `account/account-settings.png`, `account/account-settings-dark.png` | **Account** opened from **Settings**, including the left side |
 | `account/email-connections.png`, `account/email-connections-dark.png` | **Connected Email Accounts**, without the old sidebar |
 
-Also capture, with no current file: **Project** with **Edit project details**, **Contacts** → **All**, the account menu (**Settings**, **Help Center**, **Give Feedback**, **Logout**), and the white Envoy logo at the top left in dark mode.
+Also capture, with no current file: **Project** with **Edit project details** (`images/projects/project-details.png`), **Contacts** → **All** (`images/projects/contacts-all.png`), the account menu (`images/account/account-menu.png`), **Ask Envoy** from the phone header logo (`images/projects/mobile-ask-envoy.png`), and the phone tab row on **Contacts** (`images/projects/mobile-tabs.png`). The white Envoy logo at the top left in dark mode is part of any dark capture that includes the left side. The script can write those new files on a signed-in run. None of them exist yet.
 
 These crops do not show the old sidebar, and the panels they show did not move, so pages still use them: `contacts-page`, `project-contacts-toolbar`, `import-contacts-upload`, `import-contacts-review`, `data-privacy`, `default-location`, and the public getting-started images other than the project wizard.
 
