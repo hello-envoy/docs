@@ -6,6 +6,7 @@
  *   node scripts/capture-screenshots.mjs --base-url http://127.0.0.1:18080
  *   node scripts/capture-screenshots.mjs --base-url http://127.0.0.1:18080 --scheme dark
  *   node scripts/capture-screenshots.mjs --base-url https://app.hello-envoy.com --path search-results-badges
+ *   node scripts/capture-screenshots.mjs --base-url https://app.hello-envoy.com --manual-auth
  *
  * Requires Playwright. Installs from envoy-project-management when available:
  *   cd ../envoy-project-management && npm i && npx playwright install chromium
@@ -78,6 +79,8 @@ async function registerUser(page, { fullName, email, password, accountType = 'co
   }
 }
 
+// Local seeded apps accept email and password. Production sign-in is
+// Continue with Google or Continue with Microsoft only.
 async function login(page, { email, password, completeConsent = true }) {
   const response = await page.request.post(appUrl('/login'), {
     form: { email, password },
@@ -148,6 +151,45 @@ async function loginAlice(page, context) {
   await login(page, { email: 'alice@example.com', password: 'hashedpassword1' })
 }
 
+function weddingTab(page, name) {
+  return page
+    .locator(
+      '[data-testid="planner-top-tabs"]:visible, [data-testid^="planner-mobile-tab-circles-"]:visible'
+    )
+    .getByRole('tab', { name, exact: true })
+}
+
+function contactsSubtab(page, name) {
+  return page
+    .locator('[data-testid="planner-contacts-subtabs"]:visible')
+    .getByRole('tab', { name, exact: true })
+}
+
+async function openAskEnvoy(page) {
+  const composer = page.getByPlaceholder('Type your message...')
+  if (await composer.isVisible().catch(() => false)) return composer
+  const mobileLauncher = page.getByTestId('mobile-ask-envoy')
+  if (await mobileLauncher.isVisible().catch(() => false)) {
+    await mobileLauncher.click()
+  } else {
+    await page.getByTestId('ask-envoy-launcher').click()
+  }
+  await composer.waitFor()
+  return composer
+}
+
+async function openAccountMenu(page) {
+  await page.getByRole('button', { name: 'Account menu' }).first().click()
+  const menu = page.getByRole('menu').first()
+  await menu.waitFor()
+  await page.evaluate(() => {
+    document.querySelectorAll('.planner-acct-head b, .planner-acct-head span').forEach((el) => {
+      el.textContent = el.tagName === 'B' ? 'Demo User' : 'demo@example.com'
+    })
+  })
+  return menu
+}
+
 async function openNewProjectWizard(page) {
   await page.goto(appUrl('/dashboard'), { waitUntil: 'networkidle' })
   await page.evaluate(() => localStorage.removeItem('new-project-draft'))
@@ -163,8 +205,9 @@ async function openNewProjectWizard(page) {
 
 async function openOutreachDraft(page) {
   await page.goto(appUrl(`/projects/${PROJECT_ALPHA_UUID}`), { waitUntil: 'networkidle' })
-  await page.getByRole('radio', { name: 'outreach' }).click({ force: true })
-  await page.getByRole('heading', { name: 'Inbox' }).waitFor()
+  await weddingTab(page, 'Contacts').click()
+  await contactsSubtab(page, 'Inbox').click()
+  await page.getByTestId('project-outreach-content').waitFor()
   const seededThread = page.getByRole('button', { name: /June 20 florals/i }).first()
   await seededThread.waitFor({ timeout: 20000 })
   await seededThread.click()
@@ -185,6 +228,12 @@ async function main() {
     console.error('  cd ../envoy-project-management && npm i && npx playwright install chromium')
     console.error(err.message)
     process.exit(1)
+  }
+
+  if (args.includes('--manual-auth')) {
+    const { runManualAuth } = await import('./capture-production.mjs')
+    await runManualAuth({ chromium, root, baseUrl, args })
+    return
   }
 
   const browser = await chromium.launch()
@@ -300,8 +349,7 @@ async function main() {
         await context.clearCookies()
         await login(page, { email: 'alice@example.com', password: 'hashedpassword1' })
         await page.goto(appUrl(`/projects/${PROJECT_ALPHA_UUID}`), { waitUntil: 'networkidle' })
-        await page.getByRole('radio', { name: 'chat' }).click({ force: true })
-        await page.getByPlaceholder('Type your message...').waitFor()
+        await openAskEnvoy(page)
       },
     },
     {
@@ -344,8 +392,8 @@ async function main() {
         await context.clearCookies()
         await login(page, { email: 'alice@example.com', password: 'hashedpassword1' })
         await page.goto(appUrl(`/projects/${PROJECT_ALPHA_UUID}`), { waitUntil: 'networkidle' })
-        await page.getByRole('radio', { name: 'overview' }).waitFor()
-        await page.getByRole('heading', { name: 'Project Details' }).waitFor()
+        await weddingTab(page, 'Today').waitFor()
+        await page.getByTestId('project-today-stub').waitFor()
       },
     },
     {
@@ -386,6 +434,60 @@ async function main() {
             await chip.scrollIntoViewIfNeeded()
           }
         }
+      },
+    },
+    {
+      path: 'images/projects/project-details.png',
+      run: async () => {
+        await loginAlice(page, context)
+        await page.goto(appUrl(`/projects/${PROJECT_ALPHA_UUID}`), { waitUntil: 'networkidle' })
+        await weddingTab(page, 'Project').click()
+        await page.getByTestId('project-tab-stub').waitFor()
+        await page.getByRole('button', { name: 'Edit project details' }).waitFor()
+      },
+    },
+    {
+      path: 'images/projects/contacts-all.png',
+      run: async () => {
+        await loginAlice(page, context)
+        await page.goto(appUrl(`/projects/${PROJECT_ALPHA_UUID}`), { waitUntil: 'networkidle' })
+        await weddingTab(page, 'Contacts').click()
+        await contactsSubtab(page, 'All').click()
+        await page.getByRole('heading', { name: 'Contacts', exact: true }).waitFor()
+      },
+    },
+    {
+      path: 'images/account/account-menu.png',
+      run: async () => {
+        await loginAlice(page, context)
+        await page.goto(appUrl('/dashboard'), { waitUntil: 'networkidle' })
+        await openAccountMenu(page)
+        await page.getByRole('menuitem', { name: 'Settings' }).waitFor()
+      },
+    },
+    {
+      path: 'images/projects/mobile-ask-envoy.png',
+      run: async () => {
+        await loginAlice(page, context)
+        await page.setViewportSize({ width: 390, height: 844 })
+        await page.goto(appUrl(`/projects/${PROJECT_ALPHA_UUID}`), { waitUntil: 'networkidle' })
+        await page.getByTestId('mobile-ask-envoy').click()
+        await page.getByPlaceholder('Type your message...').waitFor()
+        await page.getByRole('button', { name: 'Close Ask Envoy' }).waitFor()
+        await capture(page, currentDest)
+        return 'handled'
+      },
+    },
+    {
+      path: 'images/projects/mobile-tabs.png',
+      run: async () => {
+        await loginAlice(page, context)
+        await page.setViewportSize({ width: 390, height: 844 })
+        await page.goto(appUrl(`/projects/${PROJECT_ALPHA_UUID}`), { waitUntil: 'networkidle' })
+        await weddingTab(page, 'Contacts').click()
+        await contactsSubtab(page, 'Inbox').waitFor()
+        await capture(page, currentDest)
+        return 'handled'
       },
     },
     {
