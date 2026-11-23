@@ -1,0 +1,3 @@
+# Playwright persistent profile for production screenshot capture.
+# Contains cookies and sign-in state. Never commit.
+.playwright/

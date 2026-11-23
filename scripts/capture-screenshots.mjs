@@ -6,6 +6,7 @@
  *   node scripts/capture-screenshots.mjs --base-url http://127.0.0.1:18080
  *   node scripts/capture-screenshots.mjs --base-url http://127.0.0.1:18080 --scheme dark
  *   node scripts/capture-screenshots.mjs --base-url https://app.hello-envoy.com --path search-results-badges
+ *   node scripts/capture-screenshots.mjs --base-url https://app.hello-envoy.com --manual-auth
  *
  * Requires Playwright. Installs from envoy-project-management when available:
  *   cd ../envoy-project-management && npm i && npx playwright install chromium
@@ -229,6 +230,12 @@ async function main() {
     process.exit(1)
   }
 
+  if (args.includes('--manual-auth')) {
+    const { runManualAuth } = await import('./capture-production.mjs')
+    await runManualAuth({ chromium, root, baseUrl, args })
+    return
+  }
+
   const browser = await chromium.launch()
   let context
   let page
@@ -435,8 +442,8 @@ async function main() {
         await loginAlice(page, context)
         await page.goto(appUrl(`/projects/${PROJECT_ALPHA_UUID}`), { waitUntil: 'networkidle' })
         await weddingTab(page, 'Project').click()
-        await page.getByRole('button', { name: 'Edit project details' }).click()
-        await page.getByRole('heading', { name: 'Project Details' }).waitFor()
+        await page.getByTestId('project-tab-stub').waitFor()
+        await page.getByRole('button', { name: 'Edit project details' }).waitFor()
       },
     },
     {
